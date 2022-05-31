@@ -40,12 +40,12 @@ else
     echo "password: $password"
 fi
 
-mkdir "out"
-
 hide()
 {
     echo "Hiding $1"
-    p_out="$(dirname $1)/out/$(basename $1)"
+    p_out_dir="$(dirname $1)/out"
+    mkdir -p "$p_out_dir"
+    p_out="$p_out_dir/$(basename $1)"
     steghide embed -ef "$ef" -cf "$1" -p "$password" -sf "$p_out"
 }
 
