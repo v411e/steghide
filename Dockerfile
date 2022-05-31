@@ -5,6 +5,6 @@ RUN apt update; apt install steghide -y
 VOLUME /data
 WORKDIR /data
 
-ENTRYPOINT ["steghide"]
+COPY hide.sh /hide.sh
 
-CMD ["--help"]
+ENTRYPOINT ["/hide.sh"]
